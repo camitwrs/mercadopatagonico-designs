@@ -1,0 +1,18 @@
+---
+import Bi from './Bi.astro';
+import { truckSVG } from '../lib/svg.js';
+const { title, noTags = false } = Astro.props;
+import I18N from '../data/i18n.json';
+---
+<div class="hero-text">
+  <p class="eyebrow" data-reveal><span class="truck" set:html={truckSVG(26, 'currentColor')} /><Bi f={(X) => X.eyebrow} /></p>
+  <h1 class="hero-title" data-reveal style="--i:1"><Bi f={title} /></h1>
+  <p class="hero-body" data-reveal style="--i:2"><Bi f={(X) => X.body} /></p>
+  <a class="btn btn-p btn-lg" href="#como-funciona" data-reveal style="--i:3"><Bi f={(X) => X.heroCta} /><span class="arr" aria-hidden="true">→</span></a>
+  {!noTags && (
+    <ul class="chips" data-reveal style="--i:4">
+      {I18N.es.tags.map((_, i) => <li class="chip"><Bi f={(X) => X.tags[i]} /></li>)}
+    </ul>
+  )}
+  <slot />
+</div>

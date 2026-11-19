@@ -1,0 +1,396 @@
+{
+  "es": {
+    "nav": [
+      "Qué es",
+      "Cómo funciona",
+      "Para quién",
+      "Preguntas"
+    ],
+    "contact": "Contacto",
+    "login": "Ingresar",
+    "body": "Proveemos a hoteles, restaurantes, cafés y caterings de Magallanes los productos que no consiguen con su proveedor de siempre.",
+    "h1": "El mercado de Magallanes, para tu cocina.",
+    "h2": "Tu cocina, siempre abastecida.",
+    "h3": "Lo que en el sur no hay, directo a tu cocina.",
+    "heroCta": "Conoce cómo funciona",
+    "h5": "Lo que falta en el sur, directo a tu bodega.",
+    "h6": "Lo que el sur no tiene, despachado desde Santiago.",
+    "eyebrow": "Abastecimiento para el canal HORECA",
+    "dispTitle": "Despacho",
+    "dispFrom": "Origen",
+    "dispTo": "Destino",
+    "dispFor": "Para",
+    "boardTitle": "Hoy en el mercado",
+    "boardCity": "Magallanes",
+    "boardRows": [
+      [
+        "Abastecimiento",
+        "Para HORECA"
+      ],
+      [
+        "Productos",
+        "Los que el sur no tiene"
+      ],
+      [
+        "Pedidos",
+        "En la plataforma"
+      ]
+    ],
+    "gar": [
+      [
+        "Productos que el sur no tiene",
+        "Llevamos al sur lo que los proveedores de la zona no tienen y que hasta ahora solo se conseguía en Santiago."
+      ],
+      [
+        "Pensado para HORECA",
+        "Para hoteles, restaurantes, cafés y caterings que necesitan proveerse de productos."
+      ],
+      [
+        "Pedidos en la plataforma",
+        "Entras con tu usuario, ves el catálogo y haces todos tus pedidos en un solo lugar."
+      ]
+    ],
+    "queTitle": "Lo que en Santiago hay, ahora en el sur",
+    "que1": "Mercado Patagónico abastece de alimentos al canal HORECA: hoteles, restaurantes, cafés y catering de Magallanes. Llevamos al sur productos que los proveedores de la zona no tienen y que hasta ahora solo se conseguían en Santiago.",
+    "que2": "Para usar la plataforma, ingresas con el usuario que te crea nuestro equipo. Dentro de ella ves el catálogo y haces tus pedidos.",
+    "tags": [
+      "Hoteles",
+      "Restaurantes",
+      "Cafés",
+      "Catering"
+    ],
+    "stepsTitle1": "Cómo entrar al mercado",
+    "stepsTitle2": "Del acceso a tu cocina",
+    "step": "Paso",
+    "no": "N.º ",
+    "steps": [
+      [
+        "Nos contactas",
+        "Nos cuentas de tu negocio en un formulario corto."
+      ],
+      [
+        "Creamos tu cuenta",
+        "Un administrador de nuestro equipo crea tu usuario. No hay registro propio."
+      ],
+      [
+        "Ingresas a la plataforma",
+        "Con tu usuario ves el catálogo y haces tus pedidos dentro de la plataforma."
+      ],
+      [
+        "Recibes tu pedido",
+        "Tu pedido llega a tu negocio."
+      ]
+    ],
+    "paraTitle": "Para el canal HORECA",
+    "paraSub": "Hoteles, restaurantes, cafés y catering de Magallanes que necesitan productos que hoy no encuentran en la zona.",
+    "paraBtn": "Contáctanos",
+    "clientes": [
+      "Productos que los proveedores de la zona no tienen",
+      "Un catálogo pensado para HORECA",
+      "Todos tus pedidos, dentro de la plataforma",
+      "Para hoteles, restaurantes, cafés y catering"
+    ],
+    "faqTitle": "Preguntas frecuentes",
+    "faq": [
+      [
+        "¿Quién puede usar Mercado Patagónico?",
+        "Negocios del canal HORECA: hoteles, restaurantes, cafés y catering. Contáctanos y revisamos tu caso."
+      ],
+      [
+        "¿Cómo obtengo mi cuenta?",
+        "No hay registro propio. Un administrador de nuestro equipo crea tu cuenta cuando nos contactas. Con ese usuario ingresas con el botón Ingresar."
+      ],
+      [
+        "¿Es para reservar una habitación o una mesa?",
+        "No. Mercado Patagónico es para quienes compran y abastecen: hoteles, restaurantes, cafés y caterings que necesitan proveerse de productos. Los pedidos se hacen dentro de la plataforma."
+      ],
+      [
+        "¿Qué alimentos abastecen?",
+        "Productos que en el sur son difíciles de conseguir con el proveedor de siempre. El catálogo se ve al ingresar. No incluye fruta ni verdura."
+      ]
+    ],
+    "formTitle": "Contáctanos",
+    "fields": [
+      "Nombre y cargo",
+      "Nombre del negocio",
+      "Tipo de negocio",
+      "Correo de trabajo",
+      "Teléfono"
+    ],
+    "send": "Enviar mensaje",
+    "formNote": "Te respondemos por correo. ¿Ya tienes cuenta?",
+    "ctaTitle1": "Tu cocina, en el mercado",
+    "ctaTitle2": "Cuéntanos de tu cocina",
+    "ctaText": "Cuéntanos de tu negocio y te contactamos. Un administrador de nuestro equipo crea tu cuenta.",
+    "footer": "Mercado Patagónico es un producto de Latitud53.",
+    "photo": "Foto del cliente",
+    "design": "Diseño",
+    "kitchen": "Cocina",
+    "seal": "Directo\nal sur",
+    "t1": {
+      "title": "Tu negocio",
+      "lines": [
+        "Abastecimiento de alimentos",
+        "Pedidos en la plataforma"
+      ]
+    },
+    "t2": {
+      "title": "Para quién",
+      "lines": [
+        "Hoteles",
+        "Restaurantes",
+        "Cafés",
+        "Catering"
+      ]
+    },
+    "t3": {
+      "title": "Lo que falta en el sur",
+      "lines": [
+        "Productos que no hay en la zona",
+        "Directo a tu cocina"
+      ]
+    },
+    "svcTitle": "Qué incluye el servicio",
+    "svcText": "Nos ocupamos de abastecerte con lo que en el sur no se consigue. Los pedidos los haces dentro de la plataforma.",
+    "svcKicker": "Servicio",
+    "svcNo": "Clientes",
+    "svcTicket": "Lo que incluye",
+    "svcRows": [
+      [
+        "Abastecimiento",
+        "Hoteles, restaurantes, cafés y catering"
+      ],
+      [
+        "Productos",
+        "Los que en el sur no se consiguen"
+      ],
+      [
+        "Catálogo",
+        "Se ve al ingresar"
+      ],
+      [
+        "Pedidos",
+        "Dentro de la plataforma"
+      ],
+      [
+        "Acceso",
+        "Clientes con cuenta"
+      ]
+    ],
+    "photos": [
+      [
+        "Pedido recibido",
+        "Cajas recién recibidas en la bodega de un hotel."
+      ],
+      [
+        "Camión de reparto",
+        "Camión de reparto descargando frente a la cocina."
+      ],
+      [
+        "Revisión de la entrega",
+        "Un chef revisando una entrega en la puerta de la cocina."
+      ],
+      [
+        "Bodega ordenada",
+        "Una bodega ordenada, con cajas etiquetadas."
+      ]
+    ]
+  },
+  "en": {
+    "nav": [
+      "What it is",
+      "How it works",
+      "Who it's for",
+      "FAQ"
+    ],
+    "contact": "Contact",
+    "login": "Log in",
+    "body": "We supply hotels, restaurants, cafés and caterers in Magallanes with the products they cannot get from their usual supplier.",
+    "h1": "The Magallanes market, for your kitchen.",
+    "h2": "Your kitchen, always stocked.",
+    "h3": "What the south lacks, straight to your kitchen.",
+    "heroCta": "See how it works",
+    "h5": "What the south lacks, straight to your storeroom.",
+    "h6": "What the south lacks, dispatched from Santiago.",
+    "eyebrow": "Supply for the HORECA channel",
+    "dispTitle": "Dispatch",
+    "dispFrom": "Origin",
+    "dispTo": "Destination",
+    "dispFor": "For",
+    "boardTitle": "Today at the market",
+    "boardCity": "Magallanes",
+    "boardRows": [
+      [
+        "Supply",
+        "For HORECA"
+      ],
+      [
+        "Products",
+        "The ones the south lacks"
+      ],
+      [
+        "Orders",
+        "On the platform"
+      ]
+    ],
+    "gar": [
+      [
+        "Products the south lacks",
+        "We bring to the south what suppliers in the area do not have and that until now could only be found in Santiago."
+      ],
+      [
+        "Made for HORECA",
+        "For hotels, restaurants, cafés and caterers that need to source products."
+      ],
+      [
+        "Orders on the platform",
+        "You log in with your user, see the catalog and place all your orders in one place."
+      ]
+    ],
+    "queTitle": "What Santiago has, now in the south",
+    "que1": "Mercado Patagónico supplies food to the HORECA channel: hotels, restaurants, cafés and catering in Magallanes. We bring to the south products that suppliers in the area do not carry and that until now could only be found in Santiago.",
+    "que2": "To use the platform, you log in with the user our team creates for you. Inside, you see the catalog and place your orders.",
+    "tags": [
+      "Hotels",
+      "Restaurants",
+      "Cafés",
+      "Catering"
+    ],
+    "stepsTitle1": "How to enter the market",
+    "stepsTitle2": "From access to your kitchen",
+    "step": "Step",
+    "no": "No. ",
+    "steps": [
+      [
+        "You contact us",
+        "Tell us about your business in a short form."
+      ],
+      [
+        "We create your account",
+        "An administrator on our team creates your user. There is no self-registration."
+      ],
+      [
+        "You log in to the platform",
+        "With your user, you see the catalog and place your orders inside the platform."
+      ],
+      [
+        "You receive your order",
+        "Your order arrives at your business."
+      ]
+    ],
+    "paraTitle": "For the HORECA channel",
+    "paraSub": "Hotels, restaurants, cafés and catering in Magallanes that need products they cannot find in the area today.",
+    "paraBtn": "Contact us",
+    "clientes": [
+      "Products that suppliers in the area do not carry",
+      "A catalog made for HORECA",
+      "All your orders, inside the platform",
+      "For hotels, restaurants, cafés and catering"
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      [
+        "Who can use Mercado Patagónico?",
+        "HORECA businesses: hotels, restaurants, cafés and catering. Contact us and we will review your case."
+      ],
+      [
+        "How do I get my account?",
+        "There is no self-registration. An administrator on our team creates your account when you contact us. With that user, you log in with the Log in button."
+      ],
+      [
+        "Is this for booking a room or a table?",
+        "No. Mercado Patagónico is for those who buy and stock up: hotels, restaurants, cafés and caterers that need to source products. Orders are placed inside the platform."
+      ],
+      [
+        "What food do you supply?",
+        "Products that are hard to find in the south from your usual supplier. The catalog is visible after logging in. It does not include fruit or vegetables."
+      ]
+    ],
+    "formTitle": "Contact us",
+    "fields": [
+      "Name and role",
+      "Business name",
+      "Type of business",
+      "Work email",
+      "Phone"
+    ],
+    "send": "Send message",
+    "formNote": "We reply by email. Already have an account?",
+    "ctaTitle1": "Your kitchen, at the market",
+    "ctaTitle2": "Tell us about your kitchen",
+    "ctaText": "Tell us about your business and we will contact you. An administrator on our team creates your account.",
+    "footer": "Mercado Patagónico is a product of Latitud53.",
+    "photo": "Client photo",
+    "design": "Design",
+    "kitchen": "Kitchen",
+    "seal": "Straight\nto the south",
+    "t1": {
+      "title": "Your business",
+      "lines": [
+        "Food supply",
+        "Orders on the platform"
+      ]
+    },
+    "t2": {
+      "title": "Who it's for",
+      "lines": [
+        "Hotels",
+        "Restaurants",
+        "Cafés",
+        "Catering"
+      ]
+    },
+    "t3": {
+      "title": "Missing in the south",
+      "lines": [
+        "Products not available locally",
+        "Straight to your kitchen"
+      ]
+    },
+    "svcTitle": "What the service includes",
+    "svcText": "We make sure you get what cannot be found in the south. You place your orders inside the platform.",
+    "svcKicker": "Service",
+    "svcNo": "Customers",
+    "svcTicket": "What is included",
+    "svcRows": [
+      [
+        "Supply",
+        "Hotels, restaurants, cafés and catering"
+      ],
+      [
+        "Products",
+        "The ones the south does not have"
+      ],
+      [
+        "Catalog",
+        "Visible after logging in"
+      ],
+      [
+        "Orders",
+        "Inside the platform"
+      ],
+      [
+        "Access",
+        "Customers with an account"
+      ]
+    ],
+    "photos": [
+      [
+        "Order received",
+        "Boxes just received in a hotel storeroom."
+      ],
+      [
+        "Delivery truck",
+        "A delivery truck unloading in front of the kitchen."
+      ],
+      [
+        "Checking the delivery",
+        "A chef checking a delivery at the kitchen door."
+      ],
+      [
+        "Tidy storeroom",
+        "A tidy storeroom with labelled boxes."
+      ]
+    ]
+  }
+}

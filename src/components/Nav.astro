@@ -1,0 +1,17 @@
+---
+import Bi from './Bi.astro';
+import { SECTION_IDS } from '../lib/designs.js';
+---
+<div id="top">
+  <header class="nav wrap">
+    <a class="nav-logo" href="#top" aria-label="Mercado Patagónico"><slot /></a>
+    <nav class="nav-links" aria-label="Principal">
+      {SECTION_IDS.map((id, i) => <a href={`#${id}`} data-spy={id}><Bi f={(X) => X.nav[i]} /></a>)}
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-o" href="#contacto"><Bi f={(X) => X.contact} /></a>
+      <a class="btn btn-p" href="#" data-login><Bi f={(X) => X.login} /></a>
+    </div>
+    <button class="nav-burger" type="button" data-menu-btn aria-expanded="false" aria-label="Menú"><i></i><i></i><i></i></button>
+  </header>
+</div>

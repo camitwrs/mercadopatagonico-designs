@@ -1,0 +1,19 @@
+---
+import Bi from './Bi.astro';
+import I18N from '../data/i18n.json';
+---
+<section class="para-w" id="para-quien">
+  <div class="wrap">
+    <div class="para" data-reveal="zoom">
+      <slot name="deco" />
+      <div class="para-l">
+        <h2><Bi f={(X) => X.paraTitle} /></h2>
+        <p><Bi f={(X) => X.paraSub} /></p>
+        <a class="btn btn-p" href="#contacto"><Bi f={(X) => X.paraBtn} /><span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <ul class="bul">
+        {I18N.es.clientes.map((_, i) => <li data-reveal="right" style={`--i:${i + 1}`}><Bi f={(X) => X.clientes[i]} /></li>)}
+      </ul>
+    </div>
+  </div>
+</section>

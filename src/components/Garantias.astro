@@ -1,0 +1,15 @@
+---
+import Bi from './Bi.astro';
+import { iconSVG, barcodeSVG } from '../lib/svg.js';
+const { icons = false, barcode = false, kinds = ['box', 'house', 'cart'] } = Astro.props;
+---
+<section class="gar wrap" aria-label="Garantías">
+  {kinds.map((k, i) => (
+    <article class="gar-c" data-reveal style={`--i:${i}`}>
+      {icons && <span class="gar-ic" set:html={iconSVG(k, 28, 'currentColor')} />}
+      <h3><Bi f={(X) => X.gar[i][0]} /></h3>
+      <p><Bi f={(X) => X.gar[i][1]} /></p>
+      {barcode && <span class="gar-bar" set:html={barcodeSVG(110, 24, 'currentColor')} />}
+    </article>
+  ))}
+</section>

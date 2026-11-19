@@ -1,0 +1,33 @@
+---
+import Bi from './Bi.astro';
+import I18N from '../data/i18n.json';
+const types = [0, 1, 2, 3];
+const kinds = ['text', 'text', 'select', 'email', 'tel'];
+const names = ['nombre', 'negocio', 'tipo', 'correo', 'telefono'];
+const auto = ['name', 'organization', 'off', 'email', 'tel'];
+---
+<form class="form" data-contact novalidate data-reveal="right">
+  <h3><Bi f={(X) => X.formTitle} /></h3>
+  {kinds.map((k, i) => (
+    <div class="field">
+      <label for={`f-${names[i]}`}><Bi f={(X) => X.fields[i]} /></label>
+      {k === 'select' ? (
+        <select id={`f-${names[i]}`} name={names[i]} required>
+          <option value="" selected></option>
+          {types.map((t) => <option value={I18N.es.tags[t]}>{I18N.es.tags[t]} / {I18N.en.tags[t]}</option>)}
+        </select>
+      ) : (
+        <input id={`f-${names[i]}`} name={names[i]} type={k} autocomplete={auto[i]} required />
+      )}
+      <span class="msg"><span class="l-es">Revisa este campo.</span><span class="l-en">Please check this field.</span></span>
+    </div>
+  ))}
+  <button class="btn btn-p send" type="submit"><Bi f={(X) => X.send} /></button>
+  <p class="form-note"><Bi f={(X) => X.formNote} /> <a href="#" data-login><Bi f={(X) => X.login} /></a></p>
+  <div class="form-ok" role="status">
+    <span class="ok-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+    <h4><span class="l-es">¡Mensaje enviado!</span><span class="l-en">Message sent!</span></h4>
+    <p><span class="l-es">Te respondemos por correo.</span><span class="l-en">We will reply by email.</span></p>
+    <button class="btn btn-o" type="button" data-again><span class="l-es">Enviar otro</span><span class="l-en">Send another</span></button>
+  </div>
+</form>

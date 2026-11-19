@@ -1,0 +1,10 @@
+---
+import Bi from './Bi.astro';
+---
+<footer class="foot-w">
+  <div class="foot wrap">
+    <slot />
+    <p><Bi f={(X) => X.footer} /></p>
+    <span class="foot-lang"><button type="button" data-set-lang="es">Español</button> | <button type="button" data-set-lang="en">English</button></span>
+  </div>
+</footer>

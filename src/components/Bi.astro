@@ -1,0 +1,6 @@
+---
+// Texto en español e inglés. El CSS muestra uno según <html data-lang>.
+import I18N from '../data/i18n.json';
+const { f } = Astro.props;
+---
+<span class="l-es" lang="es">{f(I18N.es)}</span><span class="l-en" lang="en">{f(I18N.en)}</span>

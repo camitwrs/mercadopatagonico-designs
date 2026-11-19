@@ -1,0 +1,16 @@
+---
+import { clocheSVG, branchSVG, platoMarkSVG, boxMarkSVG, clocheSurSVG, C2, C3, C5, C7 } from '../lib/svg.js';
+const { kind } = Astro.props;
+const mark = {
+  1: clocheSVG(52, 'currentColor', 'currentColor', C2.cobre),
+  2: branchSVG(46, 'currentColor', 'var(--berry)', C3.coiron),
+  3: platoMarkSVG(46, 'currentColor', C5.oro),
+  4: clocheSurSVG(46, 'currentColor', C7.naranja),
+}[kind];
+---
+<span class={`logo logo-${kind}`}>
+  <span class="logo-mk" set:html={mark} />
+  {kind === 2
+    ? <span class="logo-tx">Mercado Patagónico</span>
+    : <span class="logo-tx"><span>Mercado</span><span>Patagónico</span></span>}
+</span>

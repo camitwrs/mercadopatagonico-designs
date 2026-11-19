@@ -1,0 +1,17 @@
+---
+import Bi from './Bi.astro';
+import I18N from '../data/i18n.json';
+---
+<section class="que-w" id="que-es">
+  <div class="que wrap">
+    <h2 data-reveal="left"><Bi f={(X) => X.queTitle} /></h2>
+    <div class="que-r">
+      <p data-reveal style="--i:1"><Bi f={(X) => X.que1} /></p>
+      <p class="strong" data-reveal style="--i:2"><Bi f={(X) => X.que2} /></p>
+      <ul class="chips" data-reveal style="--i:3">
+        {I18N.es.tags.map((_, i) => <li class="chip"><Bi f={(X) => X.tags[i]} /></li>)}
+      </ul>
+    </div>
+  </div>
+  <slot />
+</section>

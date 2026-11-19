@@ -1,0 +1,26 @@
+---
+// Comanda del diseño 1: el ticket que cuelga en el pase de una cocina. Aquí lleva información.
+import Bi from './Bi.astro';
+import I18N from '../data/i18n.json';
+const { kicker, no, title, text, lines, big = false, step = false } = Astro.props;
+const n = lines ? lines(I18N.es).length : 0;
+const interactive = step ? { tabindex: 0, role: 'button', 'aria-pressed': 'false', 'data-step': '' } : {};
+---
+<div class:list={['tk', { 'tk-big': big }]} data-live {...interactive}>
+  <div class="tk-b">
+    <div class="tk-h"><span class="k"><Bi f={kicker} /></span><span class="no"><Bi f={no} /></span></div>
+    <h3 class="tk-t"><Bi f={title} /></h3>
+    <hr class="tk-perf" />
+    {text && <p class="tk-p"><Bi f={text} /></p>}
+    {lines && (
+      <ul class="tk-l">
+        {Array.from({ length: n }, (_, i) => (
+          <li style={`--i:${i}`}><i class="box"></i><span><Bi f={(X) => lines(X)[i]} /></span></li>
+        ))}
+      </ul>
+    )}
+    <slot />
+  </div>
+  <div class="tk-z"></div>
+  {step && <span class="tk-stamp" aria-hidden="true">✓</span>}
+</div>

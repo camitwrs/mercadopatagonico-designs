@@ -1,0 +1,26 @@
+---
+import Bi from './Bi.astro';
+import I18N from '../data/i18n.json';
+// tag: etiqueta opcional de cada pregunta ('ticket' = FAQ N.º n, 'ficha' = FAQ-0n)
+const { tag = null } = Astro.props;
+---
+<section class="faq-s" id="preguntas">
+  <div class="wrap">
+    <h2 data-reveal><Bi f={(X) => X.faqTitle} /></h2>
+    <div class="faq-grid">
+      {I18N.es.faq.map((_, i) => (
+        <article class:list={['faq-item', { open: i === 0 }]} data-reveal style={`--i:${i}`}>
+          <button class="faq-q" type="button" aria-expanded={i === 0 ? 'true' : 'false'} aria-controls={`faq-${i}`}>
+            <span class="faq-head">
+              {tag === 'ticket' && <span class="faq-tag"><span>FAQ</span><span class="faq-no"><Bi f={(X) => X.no + (i + 1)} /></span></span>}
+              {tag === 'ficha' && <span class="faq-tag">FAQ-0{i + 1}</span>}
+              <span class="faq-t"><Bi f={(X) => X.faq[i][0]} /></span>
+            </span>
+            <span class="faq-ic" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a" id={`faq-${i}`}><div><p><Bi f={(X) => X.faq[i][1]} /></p></div></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

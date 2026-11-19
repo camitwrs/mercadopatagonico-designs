@@ -1,0 +1,256 @@
+---
+// Diseño 3 · La comanda: cocina profesional, comandas en el riel del pase, acero y cobre.
+import '@fontsource/archivo-black/400.css';
+import '@fontsource-variable/archivo';
+import '@fontsource/courier-prime/400.css';
+import '@fontsource/courier-prime/700.css';
+import Bi from './Bi.astro';
+import Nav from './Nav.astro';
+import HeroText from './HeroText.astro';
+import Garantias from './Garantias.astro';
+import QueEs from './QueEs.astro';
+import ParaQuien from './ParaQuien.astro';
+import Faq from './Faq.astro';
+import ContactForm from './ContactForm.astro';
+import Footer from './Footer.astro';
+import Logo from './Logo.astro';
+import Ticket from './Ticket.astro';
+import I18N from '../data/i18n.json';
+import { panSVG, clocheSVG, C2 } from '../lib/svg.js';
+
+const pan = panSVG(210);
+const cloche = clocheSVG(120, 'currentColor', 'currentColor', C2.cobre)
+  .replace('<path', '<path class="dome"').replace('<circle', '<circle class="knob"');
+---
+<div class="d d3">
+  <Nav><Logo kind={1} /></Nav>
+  <hr class="d3-line" />
+
+  <section class="hero wrap d3-hero">
+    <HeroText title={(X) => X.h2} />
+    <div class="hero-vis" data-zone>
+      <div class="rail r1"></div>
+      <div class="rail r2"></div>
+      <div class="slot s1" data-reveal="drop" style="--i:1"><Ticket no={(X) => X.no + '1'} kicker={(X) => X.kitchen} title={(X) => X.t1.title} lines={(X) => X.t1.lines} /></div>
+      <div class="slot s2" data-reveal="drop" style="--i:2"><Ticket no={(X) => X.no + '2'} kicker={(X) => X.kitchen} title={(X) => X.t2.title} lines={(X) => X.t2.lines} /></div>
+      <div class="slot s3" data-reveal="drop" style="--i:3"><Ticket no={(X) => X.no + '3'} kicker={(X) => X.kitchen} title={(X) => X.t3.title} lines={(X) => X.t3.lines} /></div>
+    </div>
+  </section>
+
+  <section class="svc-w">
+    <div class="svc wrap">
+      <div class="svc-l">
+        <h2 data-reveal="left"><Bi f={(X) => X.svcTitle} /></h2>
+        <p data-reveal style="--i:1"><Bi f={(X) => X.svcText} /></p>
+      </div>
+      <div data-reveal="right">
+        <Ticket big still kicker={(X) => X.svcKicker} no={(X) => X.svcNo} title={(X) => X.svcTicket}>
+          <ul class="svc-rows">
+            {I18N.es.svcRows.map((_, i) => (
+              <li style={`--i:${i}`}><b><Bi f={(X) => X.svcRows[i][0]} /></b><i class="dots"></i><span><Bi f={(X) => X.svcRows[i][1]} /></span></li>
+            ))}
+          </ul>
+          <a class="btn btn-p" href="#" data-login><Bi f={(X) => X.login} /></a>
+        </Ticket>
+      </div>
+    </div>
+  </section>
+
+  <Garantias icons />
+
+  <QueEs>
+    <div class="pan-w" aria-hidden="true">
+      <div class="steam"><i></i><i></i><i></i></div>
+      <div class="pan" set:html={pan} />
+    </div>
+  </QueEs>
+
+  <section class="how-w" id="como-funciona">
+    <div class="how wrap">
+      <h2 data-reveal><Bi f={(X) => X.stepsTitle2} /></h2>
+      <div class="rail rail-how"></div>
+      <div class="how-row">
+        {I18N.es.steps.map((_, i) => (
+          <div class="slot" data-reveal="drop" style={`--i:${i}`}>
+            <Ticket step kicker={(X) => X.step} no={(X) => X.no + (i + 1)} title={(X) => X.steps[i][0]} text={(X) => X.steps[i][1]} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ParaQuien />
+  <Faq tag="ticket" />
+
+  <section class="cta-w" id="contacto">
+    <div class="cta wrap">
+      <div class="cta-l">
+        <span class="cloche" data-reveal="zoom" tabindex="0" set:html={cloche} />
+        <h2 data-reveal style="--i:1"><Bi f={(X) => X.ctaTitle2} /></h2>
+        <p data-reveal style="--i:2"><Bi f={(X) => X.ctaText} /></p>
+      </div>
+      <ContactForm />
+    </div>
+  </section>
+
+  <Footer><Logo kind={1} /></Footer>
+</div>
+
+<script>
+  // Cada comanda de los pasos se puede "despachar": se marca con un visto.
+  document.querySelectorAll('.d3 [data-step]').forEach((t) => {
+    const toggle = () => {
+      const on = t.classList.toggle('done');
+      t.setAttribute('aria-pressed', String(on));
+    };
+    t.addEventListener('click', toggle);
+    t.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
+</script>
+
+<style is:global>
+  .d3 {
+    --bg: #FFFFFF; --bg2: #EEF0F1; --emph: #1F2326; --fg: #1F2326; --mut: #555D63;
+    --btn-bg: #1F2326; --btn-fg: #FFFFFF; --accent: #B8693A;
+    --f-head: 'Archivo Black', 'Archivo Variable', sans-serif; --f-body: 'Archivo Variable', sans-serif; --f-bodymd: 'Archivo Variable', sans-serif;
+    --f-tk: 'Courier Prime', 'Courier New', monospace;
+    --r-btn: 4px; --r-chip: 4px; --r-panel: 4px; --r-form: 6px; --r-field: 4px;
+    --para-bg: var(--bg2); --para-fg: var(--fg); --para-dot: #B8693A; --para-btn-bg: var(--btn-bg); --para-btn-fg: var(--btn-fg);
+    --form-bg: var(--bg2); --field-bg: #FFFFFF;
+    --papel: #F7F5EF; --carbon: #1F2326; --cobre: #B8693A; --acero: #8D969B;
+  }
+  html[data-theme="dark"] .d3 {
+    --bg: #1F2326; --bg2: #2A3034; --emph: #14171A; --fg: #FFFFFF; --mut: #B5BCC1; --btn-bg: #FFFFFF; --btn-fg: #1F2326; --field-bg: #1F2326;
+  }
+  .d3 .hd, .d3 h1, .d3 h2, .d3 h3 { font-weight: 400; }
+  .d3 .hero-title { font-family: var(--f-head); font-size: clamp(38px, 4.9vw, 70px); line-height: 1.04; letter-spacing: -.02em; }
+  .d3-line { border: 0; height: 1px; margin: 0; background: color-mix(in srgb, var(--fg) 15%, transparent); }
+  .d3 .gar-c h3 { font-size: clamp(24px, 1.95vw, 28px); }
+  .d3 .gar-ic { background: var(--cobre); color: #fff; }
+  .d3 .gar-c + .gar-c::before { content: ''; position: absolute; left: -24px; top: 0; bottom: 0; width: 1px; background: color-mix(in srgb, var(--fg) 20%, transparent); }
+  .d3 .gar-c { position: relative; }
+
+  /* riel del pase y comandas */
+  .d3 .rail { position: absolute; left: 0; right: 0; height: 12px; background: var(--acero); border-radius: 2px; }
+  .d3 .rail::after { content: ''; position: absolute; left: 0; right: 0; top: 2px; height: 3px; background: rgba(255,255,255,.45); }
+  .d3 .slot { position: relative; --clip: 50%; }
+  .d3 .slot::before { content: ''; position: absolute; z-index: 3; top: -2px; left: calc(var(--clip) - 14px); width: 28px; height: 16px; border-radius: 3px; background: #4A5156; }
+  .d3 .tk { --rot: 0deg; position: relative; width: 100%; color: var(--carbon); transform-origin: 50% 0; transform: rotate(var(--rot)); filter: drop-shadow(0 10px 12px rgba(0,0,0,.2)); animation: d3swing 5s ease-in-out infinite alternate; animation-delay: calc(var(--i, 0) * -1.3s); }
+  .d3 .slot:hover .tk { animation: d3wiggle 1s ease-out; }
+  .d3 .tk-b { background: var(--papel); padding: 26px 24px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .d3 .tk-z { height: 10px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10'%3E%3Cpath d='M0 0L6 10L12 0Z' fill='%23F7F5EF'/%3E%3C/svg%3E") repeat-x; }
+  .d3 .tk-h { display: flex; justify-content: space-between; font-family: var(--f-tk); font-weight: 700; font-size: 13px; color: #555D63; }
+  .d3 .tk-h .no { color: var(--cobre); }
+  .d3 .tk-t { font-family: var(--f-head); font-size: 26px; line-height: 1.02; letter-spacing: -.01em; }
+  .d3 .tk-perf { border: 0; border-top: 1.5px dashed rgba(31,35,38,.4); margin: 0; }
+  .d3 .tk-p { font-family: var(--f-tk); font-size: 14px; line-height: 1.5; }
+  .d3 .tk-l { display: flex; flex-direction: column; gap: 10px; }
+  .d3 .tk-l li { display: flex; gap: 10px; align-items: flex-start; font-family: var(--f-tk); font-size: 15px; line-height: 1.4; }
+  .d3 .box { position: relative; flex: none; width: 12px; height: 12px; margin-top: 4px; border: 1.5px solid rgba(31,35,38,.7); }
+  .d3 .box::after { content: ''; position: absolute; left: 1.5px; top: -4px; width: 5px; height: 11px; border: solid var(--cobre); border-width: 0 2.5px 2.5px 0; transform: rotate(40deg) scale(0); transform-origin: 30% 80%; transition: transform .4s cubic-bezier(.3,1.6,.5,1); transition-delay: calc(.5s + var(--i, 0) * .35s); }
+  .d3 .tk.live .box::after { transform: rotate(40deg) scale(1); }
+  .d3 .tk-stamp { position: absolute; right: 14px; top: 44px; width: 44px; height: 44px; display: grid; place-items: center; border: 3px solid var(--cobre); color: var(--cobre); border-radius: 50%; font-weight: 900; font-size: 24px; transform: rotate(-14deg) scale(2.2); opacity: 0; transition: transform .35s cubic-bezier(.3,1.6,.5,1), opacity .2s; pointer-events: none; }
+  .d3 .tk.done .tk-stamp { transform: rotate(-14deg) scale(1); opacity: 1; }
+  .d3 .tk.done .tk-t { text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: var(--cobre); }
+  .d3 [data-step] { cursor: pointer; outline-offset: 4px; }
+  .d3 .tk-big { animation: none; transform: none; }
+  .d3 .tk-big .tk-t { font-size: clamp(26px, 2.36vw, 34px); }
+  @keyframes d3swing { from { transform: rotate(calc(var(--rot) - 1.1deg)); } to { transform: rotate(calc(var(--rot) + 1.1deg)); } }
+  @keyframes d3wiggle { 0% { transform: rotate(var(--rot)); } 20% { transform: rotate(calc(var(--rot) + 5deg)); } 45% { transform: rotate(calc(var(--rot) - 4deg)); } 70% { transform: rotate(calc(var(--rot) + 2deg)); } 100% { transform: rotate(var(--rot)); } }
+
+  /* hero: dos rieles con tres comandas */
+  .d3-hero { padding-block: 48px 64px; }
+  .d3 .hero-vis { position: relative; height: 640px; }
+  .d3 .hero-vis .r1 { top: 0; }
+  .d3 .hero-vis .r2 { top: 336px; }
+  .d3 .hero-vis .slot { position: absolute; }
+  .d3 .hero-vis .s1 { left: 16px; top: 12px; width: 264px; --clip: 118px; }
+  .d3 .hero-vis .s1 .tk { --rot: -2deg; }
+  .d3 .hero-vis .s2 { left: 304px; top: 12px; width: 264px; --clip: 118px; }
+  .d3 .hero-vis .s2 .tk { --rot: 2deg; }
+  .d3 .hero-vis .s3 { left: 140px; top: 348px; width: 300px; --clip: 136px; }
+  .d3 .hero-vis .s3 .tk { --rot: -1deg; }
+  .d3 .hero-vis .slot:nth-child(n+3) { margin: 0; }
+  @media (max-width: 980px) {
+    .d3-hero { padding-block: 28px 40px; }
+    .d3 .hero-vis { height: auto; display: flex; flex-direction: column; gap: 20px; padding-top: 0; }
+    .d3 .hero-vis .rail { position: relative; top: auto !important; }
+    .d3 .hero-vis .r2, .d3 .hero-vis .s3 { display: none; }
+    .d3 .hero-vis .slot { position: relative; left: 0 !important; top: 0 !important; width: 100% !important; --clip: 50%; }
+  }
+
+  /* qué incluye */
+  .d3 .svc-w { background: var(--bg2); }
+  .d3 .svc { display: grid; grid-template-columns: 1fr 600px; gap: 72px; align-items: center; padding-block: 64px; }
+  .d3 .svc-l { display: flex; flex-direction: column; gap: 24px; }
+  .d3 .svc-l h2 { font-family: var(--f-head); font-size: clamp(32px, 4vw, 58px); line-height: 1.06; letter-spacing: -.02em; }
+  .d3 .svc-l p { font-size: 19px; line-height: 1.58; color: var(--mut); }
+  .d3 .svc .tk-b { gap: 14px; }
+  .d3 .svc-rows { display: flex; flex-direction: column; }
+  .d3 .svc-rows li { display: flex; align-items: center; gap: 10px; padding-block: 6px; font-family: var(--f-tk); font-size: 15px; transition: transform .25s, background .25s; }
+  .d3 .svc-rows li:hover { transform: translateX(6px); }
+  .d3 .svc-rows b { font-size: 16px; }
+  .d3 .svc-rows .dots { flex: 1; min-width: 20px; height: 2px; background: radial-gradient(circle, rgba(31,35,38,.5) 1px, transparent 1.4px) 0 50% / 7px 2px repeat-x; transform-origin: left; }
+  .d3 .tk.live .svc-rows .dots { animation: d3dots .8s calc(var(--i, 0) * .12s) both; }
+  .d3 .svc-rows span { text-align: right; }
+  @keyframes d3dots { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @media (max-width: 1100px) { .d3 .svc { grid-template-columns: 1fr; gap: 28px; padding-block: 40px; } .d3 .svc-l h2 { } .d3 .svc-l p { font-size: 16px; } }
+  @media (max-width: 700px) { .d3 .svc-rows li { flex-direction: column; align-items: flex-start; gap: 2px; } .d3 .svc-rows .dots { display: none; } .d3 .svc-rows span { text-align: left; } .d3 .svc-rows li:hover { transform: none; } .d3 .svc .btn { width: 100%; } }
+
+  /* qué es */
+  .d3 .que-w { background: var(--bg2); }
+  .d3 .que h2 { font-size: clamp(32px, 3.34vw, 48px); letter-spacing: -.02em; line-height: 1; }
+  .d3 .pan-w { position: absolute; left: calc(max(0px, (100% - 1440px) / 2) + var(--pad) + 10px); bottom: 33px; width: 210px; }
+  .d3 .pan { transition: transform .6s cubic-bezier(.3,1.4,.5,1); }
+  .d3 .pan-w:hover .pan { transform: rotate(-3deg) translateY(-3px); }
+  .d3 .steam { position: absolute; left: 30px; top: -36px; width: 100px; height: 40px; }
+  .d3 .steam i { position: absolute; bottom: 0; width: 14px; height: 14px; border-radius: 50%; background: color-mix(in srgb, var(--fg) 28%, transparent); filter: blur(4px); opacity: 0; animation: d3steam 3.2s ease-in infinite; }
+  .d3 .steam i:nth-child(1) { left: 6px; }
+  .d3 .steam i:nth-child(2) { left: 40px; animation-delay: 1.1s; }
+  .d3 .steam i:nth-child(3) { left: 72px; animation-delay: 2.1s; }
+  @keyframes d3steam { 0% { transform: translate(0, 0) scale(.6); opacity: 0; } 25% { opacity: .9; } 100% { transform: translate(10px, -46px) scale(1.7); opacity: 0; } }
+  @media (max-width: 1100px) { .d3 .pan-w { display: none; } }
+
+  /* cómo funciona */
+  .d3 .how-w { background: var(--emph); color: #fff; }
+  .d3 .how { padding-block: 64px; display: flex; flex-direction: column; gap: 36px; position: relative; }
+  .d3 .how h2 { font-family: var(--f-head); font-size: clamp(32px, 4vw, 58px); line-height: 1.06; letter-spacing: -.02em; }
+  .d3 .rail-how { position: relative; }
+  .d3 .how-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: -24px; padding-top: 24px; }
+  .d3 .how-row .slot { --clip: 50%; }
+  .d3 .how-row .slot:nth-child(odd) .tk { --rot: -.8deg; }
+  .d3 .how-row .slot:nth-child(even) .tk { --rot: .8deg; }
+  .d3 .how-row .tk-t { font-size: 24px; }
+  @media (max-width: 1100px) { .d3 .how-row { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) { .d3 .how { padding-block: 40px; gap: 20px; } .d3 .how-row { grid-template-columns: 1fr; gap: 20px; margin-top: 0; padding-top: 0; } }
+
+  /* preguntas en comandas */
+  .d3 .faq-s { background: var(--bg2); }
+  .d3 .faq-s > .wrap > h2 { font-size: clamp(32px, 3.34vw, 48px); letter-spacing: -.02em; line-height: 1.1; }
+  .d3 .faq-item { background: var(--papel); color: var(--carbon); padding: 26px 24px 20px; filter: drop-shadow(0 10px 12px rgba(0,0,0,.16)); transition: transform .3s cubic-bezier(.3,1.4,.5,1); }
+  .d3 .faq-item::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 10px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10'%3E%3Cpath d='M0 0L6 10L12 0Z' fill='%23F7F5EF'/%3E%3C/svg%3E") repeat-x; }
+  .d3 .faq-item:hover { transform: translateY(-4px) rotate(-.4deg); }
+  .d3 .faq-head { display: flex; flex-direction: column; gap: 12px; flex: 1; min-width: 0; }
+  .d3 .faq-tag { display: flex; justify-content: space-between; font-family: var(--f-tk); font-weight: 700; font-size: 13px; color: #555D63; }
+  .d3 .faq-no { color: var(--cobre); }
+  .d3 .faq-t { font-family: var(--f-head); font-size: 22px; line-height: 1.12; letter-spacing: -.01em; }
+  .d3 .faq-ic { color: var(--cobre); margin-top: 22px; }
+  .d3 .faq-a p { font-family: var(--f-tk); font-size: 14px; line-height: 1.5; color: var(--carbon); border-top: 1.5px dashed rgba(31,35,38,.4); margin-top: 12px; }
+  .d3 .faq-grid { row-gap: 32px; }
+  @media (max-width: 980px) { .d3 .faq-t { font-size: 20px; } }
+
+  /* contacto */
+  .d3 .cta-l h2 { font-size: clamp(36px, 4.17vw, 60px); line-height: 1.04; letter-spacing: -.02em; }
+  .d3 .cloche { display: inline-block; width: 120px; color: var(--fg); }
+  .d3 .cloche svg { overflow: visible; }
+  .d3 .cloche .dome, .d3 .cloche .knob { transform-box: fill-box; transition: transform .5s cubic-bezier(.3,1.6,.5,1); }
+  .d3 .cloche:hover .dome, .d3 .cloche:hover .knob, .d3 .cloche:focus .dome, .d3 .cloche:focus .knob { transform: translateY(-14px) rotate(-6deg); }
+  .d3 .cloche.in .dome, .d3 .cloche.in .knob { animation: d3ding 1.4s .6s ease-out; }
+  @keyframes d3ding { 0%, 100% { transform: none; } 30% { transform: translateY(-9px); } 55% { transform: translateY(0); } 70% { transform: translateY(-3px); } }
+  .d3 .form h3 { font-size: 30px; }
+  @media (max-width: 980px) { .d3 .cloche { width: 84px; } .d3 .form h3 { font-size: 26px; } }
+
+  /* footer y logo */
+  .d3 .foot-w { background: var(--emph); color: #fff; }
+  .d3 .logo-tx { font-family: var(--f-head); font-size: 19px; line-height: 1.08; letter-spacing: -.01em; }
+</style>
